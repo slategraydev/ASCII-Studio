@@ -107,6 +107,7 @@ body {
 
 .sidebar-flat {
     width: 260px;
+    min-width: 260px;
     background: #0a0a0a;
     border-right: 1px solid #1a1a1a;
     transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -224,12 +225,9 @@ input[type="range"]::-webkit-slider-thumb {
 
 .viewport-flat {
     flex: 1;
-    overflow: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+    overflow: hidden;
     position: relative;
+    background: #000;
 }
 
 .ascii-render {
@@ -237,26 +235,18 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 8px;
     line-height: 6px;
     white-space: pre;
-    color: #fff; /* High contrast on black */
+    color: #fff;
     margin: 0;
-    padding: 2rem;
-}
-
-.status-bar-flat {
-    height: 24px;
-    background: #000;
-    border-top: 1px solid #111;
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-    gap: 20px;
-}
-
-.status-item {
-    font-size: 9px;
-    font-weight: 700;
-    color: #333;
-    letter-spacing: 0.05rem;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-block;
+    width: max-content;
+    /* GPU Optimizations */
+    contain: content; /* Changed from strict to prevent height collapse */
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 .loader-flat-overlay {

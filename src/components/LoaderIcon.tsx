@@ -1,5 +1,7 @@
 // Copyright (c) 2026 Randall Rosas (Slategray). All rights reserved.
 
+import React from "react";
+
 /**
  * Perform SVG-based loading animation.
  */
